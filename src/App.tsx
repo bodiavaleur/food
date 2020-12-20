@@ -14,6 +14,7 @@ import {
 
 export function App() {
   const showMenuSidebar = useSelector((state: any) => state.showMenuSidebar);
+  const path = process.env.PUBLIC_URL;
 
   return (
     <Router>
@@ -23,12 +24,16 @@ export function App() {
       {showMenuSidebar && <SidebarMenu />}
 
       <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route exact path='/categories' component={CategoriesPage} />
-        <Route exact path='/filter/:filter/:value' component={MealsPage} />
-        <Route exact path='/cuisines' component={CuisinesPage} />
-        <Route exact path='/meal/:id' component={MealInfoPage} />
-        <Route exact path='/random' component={RandomPage} />
+        <Route exact path={path} component={HomePage} />
+        <Route exact path={path + "/categories"} component={CategoriesPage} />
+        <Route
+          exact
+          path={path + "/filter/:filter/:value"}
+          component={MealsPage}
+        />
+        <Route exact path={path + "/cuisines"} component={CuisinesPage} />
+        <Route exact path={path + "/meal/:id"} component={MealInfoPage} />
+        <Route exact path={path + "/random"} component={RandomPage} />
       </Switch>
     </Router>
   );

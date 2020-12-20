@@ -8,6 +8,7 @@ interface MealsProps {
 }
 
 export function Meals({ meals }: MealsProps) {
+  const path = process.env.PUBLIC_URL;
   const formatOverflow = (name: string) => {
     if (name.length > 20) {
       return name.slice(0, 20) + "...";
@@ -20,7 +21,7 @@ export function Meals({ meals }: MealsProps) {
     <>
       <DishList>
         {meals.map((meal) => (
-          <DishListItem key={meal.idMeal} to={`/meal/${meal.idMeal}`}>
+          <DishListItem key={meal.idMeal} to={`${path}/meal/${meal.idMeal}`}>
             <ImagePreview src={meal.strMealThumb} alt={meal.strMeal} />
             <PreviewName>{formatOverflow(meal.strMeal)}</PreviewName>
           </DishListItem>

@@ -6,6 +6,7 @@ import { CategoryItem, CategoryList } from "../../ui/organisms";
 
 export function Cuisines() {
   const [cuisines, setCuisines] = useState<MealAreaLabel[]>([]);
+  const path = process.env.PUBLIC_URL;
 
   useEffect(() => {
     getMealListByArea().then((data) => setCuisines(data));
@@ -16,7 +17,7 @@ export function Cuisines() {
       <TopicTitle>Cuisines</TopicTitle>
       <CategoryList>
         {cuisines.map((cuisine: MealAreaLabel, idx) => (
-          <CategoryItem to={`/filter/area/${cuisine.strArea}`} key={idx}>
+          <CategoryItem to={`${path}/filter/area/${cuisine.strArea}`} key={idx}>
             {cuisine.strArea}
           </CategoryItem>
         ))}

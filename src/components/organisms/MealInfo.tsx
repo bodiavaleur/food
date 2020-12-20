@@ -19,6 +19,7 @@ export function MealInfo({ meal }: MealInfoProps) {
   const ingredients = Object.keys(meal)
     .map((key) => key.includes("strIngredient") && meal[key])
     .filter(Boolean);
+  const path = process.env.PUBLIC_URL;
 
   return (
     <DishDetails>
@@ -27,7 +28,10 @@ export function MealInfo({ meal }: MealInfoProps) {
       <ImageFull src={meal.strMealThumb} alt={meal.strMeal} />
       <IngredientList>
         {ingredients.map((ingredient, idx) => (
-          <IngredientItem key={idx} to={`/filter/ingredient/${ingredient}`}>
+          <IngredientItem
+            key={idx}
+            to={`${path}/filter/ingredient/${ingredient}`}
+          >
             {ingredient}
           </IngredientItem>
         ))}

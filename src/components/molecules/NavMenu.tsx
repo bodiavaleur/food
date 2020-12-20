@@ -3,11 +3,12 @@ import { MenuLink } from "../../ui/atoms";
 import { NavigationMenu } from "../../ui/molecules";
 
 export function NavMenu() {
+  const path = process.env.PUBLIC_URL;
   return (
     <NavigationMenu>
-      <MenuLink to='/categories'>Categories</MenuLink>
-      <MenuLink to='/cuisines'>Cuisines</MenuLink>
-      <MenuLink to='/random'>Random dish</MenuLink>
+      <MenuLink to={path + "/categories"}>Categories</MenuLink>
+      <MenuLink to={path + "/cuisines"}>Cuisines</MenuLink>
+      <MenuLink to={path + "/random"}>Random dish</MenuLink>
     </NavigationMenu>
   );
 }

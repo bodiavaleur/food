@@ -13,13 +13,14 @@ import logoActive from "../../assets/logoActive.svg";
 export function Header() {
   const dispatch = useDispatch();
   const isDesktop = useMediaQuery({ query: "(min-width: 800px)" });
-  const isRoot = useRouteMatch("/")?.isExact;
+  const path = process.env.PUBLIC_URL;
+  const isRoot = useRouteMatch(path)?.isExact;
 
   const toggleMenu = () => dispatch(toggleMenuSidebar());
 
   return (
     <AppHeader>
-      <AppLink to='/'>
+      <AppLink to={path}>
         {isRoot ? (
           <img src={logoActive} alt='logo' />
         ) : (

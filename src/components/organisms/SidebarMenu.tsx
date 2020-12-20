@@ -14,13 +14,14 @@ import { AiOutlineFlag } from "react-icons/ai";
 
 export function SidebarMenu() {
   const dispatch = useDispatch();
+  const path = process.env.PUBLIC_URL;
 
   const toggleMenu = () => dispatch(toggleMenuSidebar());
 
   const links = [
-    { path: "/categories", label: "Categories", icon: <BiFoodMenu /> },
-    { path: "/cuisines", label: "Cuisines", icon: <AiOutlineFlag /> },
-    { path: "/random", label: "Random dish", icon: <BiDice5 /> },
+    { path: path + "/categories", label: "Categories", icon: <BiFoodMenu /> },
+    { path: path + "/cuisines", label: "Cuisines", icon: <AiOutlineFlag /> },
+    { path: path + "/random", label: "Random dish", icon: <BiDice5 /> },
   ];
 
   return (
